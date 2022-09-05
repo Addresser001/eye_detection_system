@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import WelcomeModal from './sections/welcome_modal/welcomeModal';
+import InterogationModal from './sections/interogation_modal/interogationModal';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+
+import './styles.scss';
+import { useContext } from 'react';
+import GeneralContext from './context/generalConrtext';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+  Routes,
+} from 'react-router-dom';
+import { INTEROGATION, LANDING_PAGE } from './route';
 
 function App() {
+  const location = useLocation();
+  const { setShowResult } = useContext(GeneralContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AnimatePresence
+      exitBeforeEnter
+      onExitComplete={() => setShowResult(false)}
+    >
+      <Routes location={location} key={location.key}>
+        <Route exact path={LANDING_PAGE} element={<WelcomeModal />} />
+        <Route path={INTEROGATION} element={<InterogationModal />} />
+      </Routes>
+    </AnimatePresence>
   );
 }
 

@@ -1,0 +1,46 @@
+.modal {
+  width: 80%;
+  margin: auto;
+
+  display: flex;
+
+  background-color: rgba(147, 180, 180, 0.733);
+
+  border-radius: 0px 0px 10px 10px;
+  -webkit-box-shadow: 3px -1px 70px -26px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 3px -1px 70px -26px rgba(0, 0, 0, 0.75);
+  box-shadow: 3px -1px 70px -26px rgba(0, 0, 0, 0.75);
+  .image_container {
+    width: 30%;
+    position: relative;
+    top: 5px;
+  }
+  .text_container {
+    width: 50%;
+    position: relative;
+    top: 100px;
+    left: 80px;
+
+    h1 {
+      font-size: 35px;
+      color: white;
+    }
+
+    .button_container {
+      margin-top: 20px;
+      p {
+        color: rgba(8, 24, 24, 0.733);
+        margin-bottom: 10px;
+      }
+
+      button {
+        border: 1px solid rgba(98, 221, 221, 0.733);
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: transparent;
+        background-color: rgba(8, 24, 24, 0.733);
+        color: white;
+      }
+    }
+  }
+}
